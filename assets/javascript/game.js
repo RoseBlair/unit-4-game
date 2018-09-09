@@ -1,11 +1,24 @@
 $(document).ready(function () {
 
+
+
+    //defined variables
+
     var numberToHit = 0;
     var counter = 0;
     var losses = 0;
     var wins = 0;
 
+
+
+    //insert counter into HTML
+
     $("#counter").text(counter);
+
+
+
+    //initialize counter. reset counter to 0 and show in HTML. 
+    //change the winning number and show in HTML.
 
     function initializeCounter() {
         counter = 0;
@@ -13,6 +26,11 @@ $(document).ready(function () {
         numberToHit = Math.floor(Math.random() * 100) + 19;
         $("#numberToHit").text(numberToHit);
     };
+
+
+
+    //function that checks to see if user has won game. 
+    //if user has won, show the win.
 
     function winLossCheck(counter) {
         if (counter === numberToHit) {
@@ -23,6 +41,10 @@ $(document).ready(function () {
             
         };
 
+
+
+        //if user has lost game, show the loss. 
+
         if (counter > numberToHit) {
             losses++;
             $("#losses").text(losses);
@@ -32,10 +54,16 @@ $(document).ready(function () {
 
     };
 
+    
+    
+    // create a number to hit that's between 19 and 120. 
 
-
-    numberToHit = Math.floor(Math.random() * 20) + 19;
+    numberToHit = Math.floor(Math.random() * 100) + 19;
     $("#numberToHit").text(numberToHit);
+
+    
+
+    // make the crystal variables equal to a random value between 1 and 12.
 
     var crystal1 = Math.floor(Math.random() * 11) + 1;
     console.log(crystal1);
@@ -53,6 +81,10 @@ $(document).ready(function () {
     console.log(crystal4);
 
 
+
+    // a function that arises when one of the crystal images is clicked.
+    // the numeric value of the crystal is added to the counter.
+    // the winLossCheck function is then run to check for wins or losses.
 
     $("#crystal1").on("click", function () {
         counter = counter + crystal1;
