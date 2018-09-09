@@ -11,3 +11,13 @@ img {
 #counter {
     font-size: 24px;
 }
+
+.title {
+    background-color: seagreen;
+    font-size: 40px;
+}
+
+#wrapper {
+    background-color: lightgreen;
+    width: 60%;
+}
