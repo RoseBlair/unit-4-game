@@ -1,0 +1,13 @@
+img {
+    width: 15%;
+   
+}
+
+#crystals {
+    margin: 0 auto;
+}
+
+#numberToHit, 
+#counter {
+    font-size: 24px;
+}
