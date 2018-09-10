@@ -10,7 +10,14 @@ $(document).ready(function () {
     var wins = 0;
 
 
+    // make the crystal variables equal to a random value between 1 and 12.
 
+    var crystal1 = Math.floor(Math.random() * 11) + 1;
+    var crystal2 = Math.floor(Math.random() * 11) + 1;
+    var crystal3 = Math.floor(Math.random() * 11) + 1;
+    var crystal4 = Math.floor(Math.random() * 11) + 1;
+
+    
     //insert counter into HTML
 
     $("#counter").text(counter);
@@ -25,30 +32,40 @@ $(document).ready(function () {
         $("#counter").text(counter);
         numberToHit = Math.floor(Math.random() * 100) + 19;
         $("#numberToHit").text(numberToHit);
+
+        // make the crystal variables equal to a random value between 1 and 12.
+
+        crystal1 = Math.floor(Math.random() * 11) + 1;
+        crystal2 = Math.floor(Math.random() * 11) + 1;
+        crystal3 = Math.floor(Math.random() * 11) + 1;
+        crystal4 = Math.floor(Math.random() * 11) + 1;
     };
 
 
 
     //function that checks to see if user has won game. 
-    //if user has won, show the win.
+    //if user has won, show the win. Put "You win!" into HTML.
 
     function winLossCheck(counter) {
         if (counter === numberToHit) {
+            console.log("you won, counter === numbertohit")
             wins++;
             $("#wins").text(wins);
             console.log(wins);
+            $("#message").text("You win!");
             initializeCounter();
-            
         };
 
 
 
-        //if user has lost game, show the loss. 
+        //if user has lost game, show the loss. Put "You lose!" into HTML.
 
         if (counter > numberToHit) {
+            console.log("you went over, counter > numbertohit")
             losses++;
             $("#losses").text(losses);
-            console.log(losses)
+            console.log(losses)  
+            $("#message").text("You lose.");
             initializeCounter();
         };
 
@@ -58,27 +75,13 @@ $(document).ready(function () {
     
     // create a number to hit that's between 19 and 120. 
 
-    numberToHit = Math.floor(Math.random() * 100) + 19;
+    numberToHit = Math.floor(Math.random() * 120 - 19 + 1) + 19;
     $("#numberToHit").text(numberToHit);
 
-    
-
-    // make the crystal variables equal to a random value between 1 and 12.
-
-    var crystal1 = Math.floor(Math.random() * 11) + 1;
-    console.log(crystal1);
 
 
-    var crystal2 = Math.floor(Math.random() * 11) + 1;
-    console.log(crystal2);
 
 
-    var crystal3 = Math.floor(Math.random() * 11) + 1;
-    console.log(crystal3);
-
-
-    var crystal4 = Math.floor(Math.random() * 11) + 1;
-    console.log(crystal4);
 
 
 
@@ -91,8 +94,6 @@ $(document).ready(function () {
         console.log(counter);
         $("#counter").text(counter);
         winLossCheck(counter);
-
-
     });
 
     $("#crystal2").on("click", function () {
