@@ -59,7 +59,7 @@ $(document).ready(function () {
             console.log(wins);
             $("#message").text("You win!");
             initializeCounter();
-        };
+        }
 
 
 
@@ -67,13 +67,13 @@ $(document).ready(function () {
         //UNFORTUNATELY, the wins/losses counter did not work perfectly. Wins and losses were at times
         //counted when they should not have been. 
 
-        if (counter > numberToHit) {
+        else if (counter > numberToHit) {
             losses++;
             $("#losses").text(losses);
             console.log(losses)  
             $("#message").text("You lose.");
             initializeCounter();
-        };
+        }
 
     };
 
