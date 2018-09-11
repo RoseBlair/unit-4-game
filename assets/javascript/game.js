@@ -1,3 +1,7 @@
+
+
+
+
 $(document).ready(function () {
 
 
@@ -28,9 +32,10 @@ $(document).ready(function () {
     //change the winning number and show in HTML.
 
     function initializeCounter() {
+        console.log("Initializing...")
         counter = 0;
         $("#counter").text(counter);
-        numberToHit = Math.floor(Math.random() * 100) + 19;
+        numberToHit = Math.floor(Math.random() * 102) + 19;
         $("#numberToHit").text(numberToHit);
 
         // make the crystal variables equal to a random value between 1 and 12.
@@ -44,11 +49,11 @@ $(document).ready(function () {
 
 
     //function that checks to see if user has won game. 
-    //if user has won, show the win. Put "You win!" into HTML.
+    //if user has won, add to wins. 
+    //Put "You win!" into HTML.
 
     function winLossCheck(counter) {
         if (counter === numberToHit) {
-            console.log("you won, counter === numbertohit")
             wins++;
             $("#wins").text(wins);
             console.log(wins);
@@ -58,10 +63,11 @@ $(document).ready(function () {
 
 
 
-        //if user has lost game, show the loss. Put "You lose!" into HTML.
+        //if user has lost game, add to losses. Put "You lose!" into HTML.
+        //UNFORTUNATELY, the wins/losses counter did not work perfectly. Wins and losses were at times
+        //counted when they should not have been. 
 
         if (counter > numberToHit) {
-            console.log("you went over, counter > numbertohit")
             losses++;
             $("#losses").text(losses);
             console.log(losses)  
@@ -71,18 +77,13 @@ $(document).ready(function () {
 
     };
 
-    
+  
     
     // create a number to hit that's between 19 and 120. 
+    //UNFORTUNATELY, the range was slightly off. 
 
-    numberToHit = Math.floor(Math.random() * 120 - 19 + 1) + 19;
+    numberToHit = Math.floor(Math.random() * 102) + 19;
     $("#numberToHit").text(numberToHit);
-
-
-
-
-
-
 
 
     // a function that arises when one of the crystal images is clicked.
